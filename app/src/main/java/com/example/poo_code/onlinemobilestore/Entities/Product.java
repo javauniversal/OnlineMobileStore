@@ -30,7 +30,6 @@ public class Product {
     @SerializedName("imagen")
     private String imagemes;
 
-
     @SerializedName("tallas")
     private ArrayList<MasterItem> talla;
 
@@ -42,6 +41,78 @@ public class Product {
 
     @SerializedName("cuidado")
     private ArrayList<MasterItem> cuidado;
+
+    private static String staticNombre;
+
+    private static Double staticPrecio;
+
+    private static String staticdescripcion;
+
+    private static String staticImagen;
+
+    private static ArrayList<MasterItem> staticColor;
+
+    private static ArrayList<MasterItem> staticComposicion;
+
+    private static ArrayList<MasterItem> staticTallas;
+
+    private static ArrayList<MasterItem> staticCuidado;
+
+    public static ArrayList<MasterItem> getStaticCuidado() {
+        return staticCuidado;
+    }
+
+    public static void setStaticCuidado(ArrayList<MasterItem> staticCuidado) {
+        Product.staticCuidado = staticCuidado;
+    }
+
+    public static ArrayList<MasterItem> getStaticComposicion() {
+        return staticComposicion;
+    }
+
+    public static void setStaticComposicion(ArrayList<MasterItem> staticComposicion) {
+        Product.staticComposicion = staticComposicion;
+    }
+
+    public static ArrayList<MasterItem> getStaticTallas() {
+        return staticTallas;
+    }
+
+    public static void setStaticTallas(ArrayList<MasterItem> staticTallas) {
+        Product.staticTallas = staticTallas;
+    }
+
+    public static String getStaticNombre() {
+        return staticNombre;
+    }
+
+    public static void setStaticNombre(String staticNombre) {
+        Product.staticNombre = staticNombre;
+    }
+
+    public static Double getStaticPrecio() {
+        return staticPrecio;
+    }
+
+    public static void setStaticPrecio(Double staticPrecio) {
+        Product.staticPrecio = staticPrecio;
+    }
+
+    public static String getStaticdescripcion() {
+        return staticdescripcion;
+    }
+
+    public static void setStaticdescripcion(String staticdescripcion) {
+        Product.staticdescripcion = staticdescripcion;
+    }
+
+    public static String getStaticImagen() {
+        return staticImagen;
+    }
+
+    public static void setStaticImagen(String staticImagen) {
+        Product.staticImagen = staticImagen;
+    }
 
     public int getIdProduct() { return idProduct; }
 
@@ -99,8 +170,20 @@ public class Product {
         this.cuidado = cuidado;
     }
 
+    public static ArrayList<MasterItem> getStaticColor() {
+        return staticColor;
+    }
+
+    public static void setStaticColor(ArrayList<MasterItem> staticColor) {
+        Product.staticColor = staticColor;
+    }
+
     @Override
     public String  toString(){
         return getNombre();
     }
+
+
+
+
 }

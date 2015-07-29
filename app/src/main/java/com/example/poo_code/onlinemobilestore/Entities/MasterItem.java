@@ -2,10 +2,12 @@ package com.example.poo_code.onlinemobilestore.Entities;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by Poo_Code on 19/07/2015.
  */
-public class MasterItem {
+public class MasterItem implements Serializable {
 
     @SerializedName("code")
     private int code;
@@ -33,5 +35,10 @@ public class MasterItem {
     public String getComposition() { return composition; }
 
     public void setComposition(String composition) { this.composition = composition; }
+
+    @Override
+    public String  toString(){
+        return getValue();
+    }
 
 }

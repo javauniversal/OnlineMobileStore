@@ -1,5 +1,6 @@
 package com.example.poo_code.onlinemobilestore.Fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,7 @@ public class FragmentRebaja extends BaseVolleyFragment {
     private ListView multiColumnList;
     private ImageView mErrorView;
     private ListProduct dataRebaj;
+    private static Activity activity;
 
     public static FragmentRebaja newInstance(Bundle bundle) {
         FragmentRebaja fragment = new FragmentRebaja();
@@ -52,6 +54,9 @@ public class FragmentRebaja extends BaseVolleyFragment {
         super.onActivityCreated(savedInstanceState);
         multiColumnList = (ListView) getActivity().findViewById(R.id.card_list);
         mErrorView = (ImageView) getActivity().findViewById(R.id.error_data);
+
+        activity = getActivity();
+
         setupGrid();
     }
 
@@ -65,8 +70,8 @@ public class FragmentRebaja extends BaseVolleyFragment {
                             Toast.makeText(getActivity(), "No se encontraron datos", Toast.LENGTH_LONG).show();
                             mErrorView.setVisibility(View.VISIBLE);
                         }else{
-                            CostomAdapterProduct adapter = new CostomAdapterProduct(getActivity(), dataRebaj);
-                            adapter.enableAutoMeasure(150);
+                            CostomAdapterProduct adapter = new CostomAdapterProduct(activity, dataRebaj);
+                            adapter.enableAutoMeasure(250);
                             multiColumnList.setAdapter(adapter);
                             mErrorView.setVisibility(View.GONE);
                         }

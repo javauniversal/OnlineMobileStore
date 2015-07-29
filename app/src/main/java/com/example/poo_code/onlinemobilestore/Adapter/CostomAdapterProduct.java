@@ -6,10 +6,12 @@ import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.poo_code.onlinemobilestore.Activity.ActProductDetail;
 import com.example.poo_code.onlinemobilestore.Entities.ListProduct;
+import com.example.poo_code.onlinemobilestore.Entities.Product;
 import com.example.poo_code.onlinemobilestore.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -50,23 +52,30 @@ public class CostomAdapterProduct extends BucketListAdapterProduct {
         holder = new ViewHolder2(bucketElement);
         bucketElement.setTag(holder);
 
+        //Llenado static product
+
+
         ImageLoadingListener listener = new ImageLoadingListener(){
             @Override
             public void onLoadingStarted(String arg0, View arg1) {
                 // TODO Auto-generated method stub
+                holder.progressBar.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onLoadingCancelled(String arg0, View arg1) {
                 // TODO Auto-generated method stub
+                holder.progressBar.setVisibility(View.GONE);
             }
 
             @Override
             public void onLoadingComplete(String arg0, View arg1, Bitmap arg2) {
+                holder.progressBar.setVisibility(View.GONE);
             }
             @Override
             public void onLoadingFailed(String arg0, View arg1, FailReason arg2) {
                 // TODO Auto-generated method stub
+                holder.progressBar.setVisibility(View.GONE);
             }
         };
 
@@ -77,6 +86,16 @@ public class CostomAdapterProduct extends BucketListAdapterProduct {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(mActivity, elements.get(position).getNombre(), Toast.LENGTH_SHORT).show();
+                Product.setStaticNombre(elements.get(position).getNombre());
+                Product.setStaticdescripcion(elements.get(position).getDescripcion());
+                Product.setStaticPrecio(elements.get(position).getPrecio());
+                Product.setStaticImagen(elements.get(position).getImagemes());
+
+                Product.setStaticColor(elements.get(position).getColor());
+                Product.setStaticTallas(elements.get(position).getTalla());
+                Product.setStaticComposicion(elements.get(position).getComposicion());
+                Product.setStaticCuidado(elements.get(position).getCuidado());
+
                 Intent intent = new Intent(mActivity, ActProductDetail.class);
                 mActivity.startActivity(intent);
             }
@@ -89,11 +108,13 @@ public class CostomAdapterProduct extends BucketListAdapterProduct {
         public TextView name = null;
         public TextView precie = null;
         public ImageView img = null;
+        public ProgressBar progressBar;
 
         ViewHolder2(View row) {
             name = (TextView) row.findViewById(R.id.namet);
             img = (ImageView) row.findViewById(R.id.listicon);
             precie = (TextView) row.findViewById(R.id.precio);
+            progressBar = (ProgressBar) row.findViewById(R.id.progressBar);
         }
         void populateFrom(String s) {
             name.setText(s);

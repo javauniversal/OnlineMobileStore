@@ -26,6 +26,10 @@
             android:name=".Activity.ActProductDetail"
             android:label="@string/title_activity_act_product_detail" >
         </activity>
+        <activity
+            android:name=".Activity.ActCarProduct"
+            android:label="@string/title_activity_act_car_product" >
+        </activity>
     </application>
 
 </manifest>

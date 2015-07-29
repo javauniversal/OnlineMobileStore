@@ -7,4 +7,9 @@
     <dimen name="grid_item_background_corner_radius">3dp</dimen>
 
     <dimen name="project_card_min_width">150.0dip</dimen>
+
+    <dimen name="max_height_header">250dp</dimen>
+    <dimen name="min_height_header">120dp</dimen>
+    <dimen name="min_height_textheader_materiallike">20dp</dimen>
+    <dimen name="min_height_header_materiallike">100dp</dimen>
 </resources>
