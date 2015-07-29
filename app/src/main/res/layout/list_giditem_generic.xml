@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/project_card_color"
+    android:showDividers="none">
+
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingBottom="4dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:background="@drawable/selector_grid_item_bg"
+        android:layout_width="@dimen/project_card_min_width">
+
+        <ImageView
+            android:id="@+id/listicon"
+            android:layout_width="@dimen/project_card_min_width"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_slide1"
+            android:contentDescription="@string/app_name" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="@dimen/project_card_min_width"
+            android:background="#000"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_below="@+id/listicon"
+            android:layout_alignLeft="@+id/listicon"
+            android:layout_alignStart="@+id/listicon">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Large Text"
+                android:textColor="#fff"
+                android:id="@+id/namet"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>

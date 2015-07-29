@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">OnlineMobileStore</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="customized_intro">Start custom Intro</string>
+    <string name="default_intro">Start default Intro</string>
+    <string name="fade_animation">Set Fade animation</string>
+    <string name="custom_animation">Set custom Transformer</string>
+    <string name="progress_indicator">Set progress indicator</string>
+    <string name="custom_indicator">Set custom indicator</string>
+    <string name="second_layout_intro">Start Intro with Layout 2</string>
+    <string name="title_activity_default_intro">DefaultIntro</string>
+    <string name="title_activity_custom_intro">CustomIntro</string>
+    <string name="title_activity_second_intro">SecondLayoutIntro</string>
+    <string name="skip">Y U DO DIS TO ME?</string>
+    <string name="header_animations">Animations</string>
+    <string name="header_indicators">Indicators</string>
+    <string name="title_activity_act_main">Online Mobile Store</string>
+    <string name="menu_categoria">Categoria</string>
+    <string name="menu_salir">Salir</string>
+    <string name="drawer_open">Menu Opened</string>
+    <string name="drawer_close">Menu Closed</string>
+
+
+
+    <!-- Listado del menu -->
+    <string name="drawer_rebajas">Rebajas</string>
+    <string name="drawer_categoria">Categorias</string>
+    <string name="drawer_carrito">Carrito</string>
+    <string name="drawer_tiendas">Tiendas</string>
+    <string name="drawer_nueva_temporada">Nueva temporada</string>
+    <string name="drawer_perfil">Perfil</string>
+    <string name="drawer_ayuda">Ayuda</string>
+    <string name="drawer_scan">Scan</string>
+    <string name="drawer_salir">Salir</string>
+    <string name="candelaria">Candelaria</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Url base -->
+    <string name="url_base">http://192.168.1.17:8080/admin_store_online/services/</string>
+    <string name="category">Categoria</string>
+
+</resources>
