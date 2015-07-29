@@ -13,7 +13,7 @@
     <string name="title_activity_default_intro">DefaultIntro</string>
     <string name="title_activity_custom_intro">CustomIntro</string>
     <string name="title_activity_second_intro">SecondLayoutIntro</string>
-    <string name="skip">Y U DO DIS TO ME?</string>
+    <string name="skip">Bienvenido</string>
     <string name="header_animations">Animations</string>
     <string name="header_indicators">Indicators</string>
     <string name="title_activity_act_main">Online Mobile Store</string>
@@ -40,7 +40,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- Url base -->
-    <string name="url_base">http://192.168.1.17:8080/admin_store_online/services/</string>
+    <string name="url_base">http://192.168.1.54:8080/admin_store_online/services/</string>
     <string name="category">Categoria</string>
+    <string name="title_activity_act_product_detail">Detalle del producto</string>
 
 </resources>

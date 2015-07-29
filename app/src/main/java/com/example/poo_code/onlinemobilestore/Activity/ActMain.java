@@ -68,7 +68,7 @@ public class ActMain extends AppCompatActivity {
                 new DrawerMenu().setIconRes(R.mipmap.ic_action_exit).setText(getString(R.string.drawer_salir, 17)),
                 new DrawerItem(DrawerItem.Type.DIVIDER)));
 
-
+        onDrawerMenuSelected(1);
         drawerOptions.setLayoutManager(new LinearLayoutManager(this));
         adapter = new DrawerItemAdapter(drawerItems);
         adapter.setOnItemClickListener(new DrawerItemAdapter.OnItemClickListener() {

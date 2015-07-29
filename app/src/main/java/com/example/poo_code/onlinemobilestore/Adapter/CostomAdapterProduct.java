@@ -1,13 +1,14 @@
 package com.example.poo_code.onlinemobilestore.Adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.poo_code.onlinemobilestore.Activity.ActProductDetail;
 import com.example.poo_code.onlinemobilestore.Entities.ListProduct;
 import com.example.poo_code.onlinemobilestore.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -71,11 +72,13 @@ public class CostomAdapterProduct extends BucketListAdapterProduct {
 
         imageLoader1.displayImage(elements.get(position).getImagemes(), holder.img, options1, listener);
         holder.name.setText(elements.get(position).getNombre());
-
+        holder.precie.setText(String.format("Precio: $ %s",elements.get(position).getPrecio()));
         bucketElement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mActivity, elements.get(position).getNombre(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mActivity, elements.get(position).getNombre(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mActivity, ActProductDetail.class);
+                mActivity.startActivity(intent);
             }
         });
 
@@ -90,6 +93,7 @@ public class CostomAdapterProduct extends BucketListAdapterProduct {
         ViewHolder2(View row) {
             name = (TextView) row.findViewById(R.id.namet);
             img = (ImageView) row.findViewById(R.id.listicon);
+            precie = (TextView) row.findViewById(R.id.precio);
         }
         void populateFrom(String s) {
             name.setText(s);

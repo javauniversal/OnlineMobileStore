@@ -27,7 +27,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="@dimen/project_card_min_width"
-            android:background="#000"
+            android:background="@color/color_principal"
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:layout_below="@+id/listicon"
@@ -37,9 +37,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Large Text"
+                android:text="Nombre del producto"
                 android:textColor="#fff"
                 android:id="@+id/namet"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Precio:"
+                android:layout_marginTop="5dp"
+                android:textColor="#fff"
+                android:id="@+id/precio"/>
+
         </LinearLayout>
     </RelativeLayout>
 
