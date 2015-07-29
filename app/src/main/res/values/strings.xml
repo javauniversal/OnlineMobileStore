@@ -21,7 +21,10 @@
     <string name="menu_salir">Salir</string>
     <string name="drawer_open">Menu Opened</string>
     <string name="drawer_close">Menu Closed</string>
-
+    <string name="title">Cerrar la aplicación</string>
+    <string name="content">¿Esta seguro que desea cerrar la aplicación?</string>
+    <string name="agree">Aceptar</string>
+    <string name="disagree">Cancelar</string>
 
 
     <!-- Listado del menu -->

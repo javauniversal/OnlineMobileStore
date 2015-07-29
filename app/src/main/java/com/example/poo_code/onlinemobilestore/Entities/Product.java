@@ -42,6 +42,8 @@ public class Product {
     @SerializedName("cuidado")
     private ArrayList<MasterItem> cuidado;
 
+    private int idAutoIncrement;
+
     private static String staticNombre;
 
     private static Double staticPrecio;
@@ -50,6 +52,16 @@ public class Product {
 
     private static String staticImagen;
 
+    private static int staticIdProduct;
+
+    public static int getStaticIdProduct() {
+        return staticIdProduct;
+    }
+
+    public static void setStaticIdProduct(int staticIdProduct) {
+        Product.staticIdProduct = staticIdProduct;
+    }
+
     private static ArrayList<MasterItem> staticColor;
 
     private static ArrayList<MasterItem> staticComposicion;
@@ -57,6 +69,14 @@ public class Product {
     private static ArrayList<MasterItem> staticTallas;
 
     private static ArrayList<MasterItem> staticCuidado;
+
+    public int getIdAutoIncrement() {
+        return idAutoIncrement;
+    }
+
+    public void setIdAutoIncrement(int idAutoIncrement) {
+        this.idAutoIncrement = idAutoIncrement;
+    }
 
     public static ArrayList<MasterItem> getStaticCuidado() {
         return staticCuidado;

@@ -86,6 +86,7 @@ public class CostomAdapterProduct extends BucketListAdapterProduct {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(mActivity, elements.get(position).getNombre(), Toast.LENGTH_SHORT).show();
+                Product.setStaticIdProduct(elements.get(position).getIdProduct());
                 Product.setStaticNombre(elements.get(position).getNombre());
                 Product.setStaticdescripcion(elements.get(position).getDescripcion());
                 Product.setStaticPrecio(elements.get(position).getPrecio());

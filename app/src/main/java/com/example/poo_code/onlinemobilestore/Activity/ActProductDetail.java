@@ -1,5 +1,6 @@
 package com.example.poo_code.onlinemobilestore.Activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.media.Image;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ScrollView;
@@ -18,7 +20,9 @@ import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.poo_code.onlinemobilestore.DataBase.DBHelper;
 import com.example.poo_code.onlinemobilestore.Entities.MasterItem;
 import com.example.poo_code.onlinemobilestore.Entities.Product;
 import com.example.poo_code.onlinemobilestore.R;
@@ -35,7 +39,7 @@ import java.util.List;
 
 import it.carlom.stikkyheader.core.StikkyHeaderBuilder;
 
-public class ActProductDetail extends AppCompatActivity {
+public class ActProductDetail extends AppCompatActivity implements View.OnClickListener {
 
     private ScrollView mListView;
     private DisplayImageOptions options1;
@@ -44,11 +48,14 @@ public class ActProductDetail extends AppCompatActivity {
     private TextView nombre;
     private TextView precio;
     private TableLayout tabla, table2;
+    private DBHelper mydb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_product_detail);
+
+        mydb = new DBHelper(this);
 
         mListView = (ScrollView) findViewById(R.id.listview);
         img = (KenBurnsView) findViewById(R.id.image);
@@ -56,6 +63,8 @@ public class ActProductDetail extends AppCompatActivity {
         precio = (TextView) findViewById(R.id.precio);
         tabla = (TableLayout) findViewById(R.id.myTable);
         table2 = (TableLayout) findViewById(R.id.myTable2);
+        Button agregar = (Button) findViewById(R.id.AddCar);
+        agregar.setOnClickListener(this);
 
         nombre.setText(Product.getStaticdescripcion());
         nombre.setTextColor(Color.BLACK);
@@ -171,6 +180,27 @@ public class ActProductDetail extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.AddCar:
 
+                Product product = new Product();
 
+                product.setIdProduct(Product.getStaticIdProduct());
+                product.setNombre(Product.getStaticNombre());
+                product.setPrecio(Product.getStaticPrecio());
+                product.setDescripcion(Product.getStaticdescripcion());
+                product.setImagemes(Product.getStaticImagen());
+
+                if(mydb.insertProduct(product)){
+                    Intent intent = new Intent(this, ActCarProduct.class);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(this,"Problemas al guardar", Toast.LENGTH_LONG).show();
+                }
+
+                break;
+        }
+    }
 }

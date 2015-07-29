@@ -1,6 +1,9 @@
 package com.example.poo_code.onlinemobilestore.Activity;
 
+import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -14,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.poo_code.onlinemobilestore.Adapter.DrawerItemAdapter;
 import com.example.poo_code.onlinemobilestore.Entities.DrawerItem;
 import com.example.poo_code.onlinemobilestore.Entities.DrawerMenu;
@@ -109,14 +113,44 @@ public class ActMain extends AppCompatActivity {
             case 4:
                 break;
             case 5:
+                Intent intent = new Intent(this, ActCarProduct.class);
+                startActivity(intent);
                 break;
             case 6:
-                //salirApp();
+                salirApp();
                 break;
             default:
 
         };
         drawerLayout.closeDrawers();
+    }
+
+    @Override
+    public void onBackPressed() {
+        salirApp();
+    }
+
+    public void salirApp(){
+        //Aler dialog con dos botones
+        new MaterialDialog.Builder(this)
+                .title(R.string.title)
+                .content(R.string.content)
+                .positiveText(R.string.agree)
+                .negativeText(R.string.disagree)
+                .callback(new MaterialDialog.ButtonCallback() {
+                    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+                    @Override
+                    public void onPositive(MaterialDialog dialog) {
+                        //Salir de la aplicacion
+                        finishAffinity();
+                    }
+
+                    @Override
+                    public void onNegative(MaterialDialog dialog) {
+                        dialog.dismiss();
+                    }
+                }).show();
+
     }
 
     @Override
@@ -133,20 +167,16 @@ public class ActMain extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_act_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_cart) {
             return true;
         }
 
