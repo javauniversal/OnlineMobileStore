@@ -1,9 +1,11 @@
 package com.example.poo_code.onlinemobilestore.Fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -28,6 +30,7 @@ public class FragmentCategory extends BaseVolleyFragment {
     private ListView multiColumnList;
     private ArrayList<Category> modelCategory;
     private ImageView mErrorView;
+    private static Activity activity;
 
     public static FragmentCategory newInstance(Bundle bundle) {
         FragmentCategory fragment = new FragmentCategory();
@@ -53,7 +56,7 @@ public class FragmentCategory extends BaseVolleyFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        activity = getActivity();
         multiColumnList = (ListView) getActivity().findViewById(R.id.card_list);
         mErrorView = (ImageView) getActivity().findViewById(R.id.error_data);
         setCategoryListView();
@@ -64,12 +67,12 @@ public class FragmentCategory extends BaseVolleyFragment {
         StringRequest jsonRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>(){
                     @Override
-                    public void onResponse(final String response) {
+                    public void onResponse(String response) {
                        if (!parseJSON(response)) {
                            Toast.makeText(getActivity(), "No se encontraron datos", Toast.LENGTH_LONG).show();
                            mErrorView.setVisibility(View.VISIBLE);
                        }else{
-                           CustomAdapterCategory adapter = new CustomAdapterCategory(getActivity(), modelCategory);
+                           CustomAdapterCategory adapter = new CustomAdapterCategory(activity, modelCategory);
                            adapter.enableAutoMeasure(150);
                            multiColumnList.setAdapter(adapter);
                            mErrorView.setVisibility(View.GONE);
@@ -105,7 +108,6 @@ public class FragmentCategory extends BaseVolleyFragment {
 
                 Category categoria = new Category(serializa.getInt("idcategory"),
                         serializa.getString("description"),
-                        serializa.getString("imagen"),
                         serializa.getInt("state"));
                 modelCategory.add(categoria);
             }
@@ -125,6 +127,5 @@ public class FragmentCategory extends BaseVolleyFragment {
     public void onDetach() {
         super.onDetach();
     }
-
 
 }

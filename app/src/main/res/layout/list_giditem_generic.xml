@@ -3,14 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/project_card_color"
+    android:background="@drawable/selector_grid_item_bg"
     android:showDividers="none">
 
     <RelativeLayout
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:paddingBottom="3dp"
-        android:background="@drawable/selector_grid_item_bg"
         android:layout_width="match_parent">
 
         <ImageView

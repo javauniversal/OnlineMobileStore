@@ -27,6 +27,7 @@ public class FragmentRebaja extends BaseVolleyFragment {
     private ImageView mErrorView;
     private ListProduct dataRebaj;
     private static Activity activity;
+    private int mParam1;
 
     public static FragmentRebaja newInstance(Bundle bundle) {
         FragmentRebaja fragment = new FragmentRebaja();
@@ -40,6 +41,7 @@ public class FragmentRebaja extends BaseVolleyFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+            mParam1 = getArguments().getInt("categoria");
         }
     }
 
@@ -89,7 +91,7 @@ public class FragmentRebaja extends BaseVolleyFragment {
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String>  params = new HashMap<>();
-
+                params.put("categoria", String.valueOf(mParam1));
                 return params;
             }
         };

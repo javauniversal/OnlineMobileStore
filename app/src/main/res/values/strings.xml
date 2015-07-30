@@ -49,5 +49,6 @@
     <string name="category">Categoria</string>
     <string name="title_activity_act_product_detail">Detalle del producto</string>
     <string name="title_activity_act_car_product">Carrito de la compra</string>
+    <string name="title_activity_act_mapas">Map</string>
 
 </resources>

@@ -1,7 +1,7 @@
 package com.example.poo_code.onlinemobilestore.Fragment;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;

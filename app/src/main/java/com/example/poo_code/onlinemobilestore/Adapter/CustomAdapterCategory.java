@@ -1,12 +1,12 @@
 package com.example.poo_code.onlinemobilestore.Adapter;
 
 import android.app.Activity;
-import android.graphics.Color;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.poo_code.onlinemobilestore.Activity.CategoriaProduct;
 import com.example.poo_code.onlinemobilestore.Entities.Category;
 import com.example.poo_code.onlinemobilestore.R;
 
@@ -30,10 +30,15 @@ public class CustomAdapterCategory extends BucketListAdapterCategotia<String> {
         holder = new ViewHolder(bucketElement);
         bucketElement.setTag(holder);
 
-        LinearLayout fon = (LinearLayout) bucketElement.findViewById(R.id.fondo);
-        fon.setBackgroundColor(Color.parseColor(currentElement.getImgen()));
         holder.name.setText(currentElement.getDescription());
-
+        bucketElement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mActivity ,CategoriaProduct.class);
+                intent.putExtra("categoria", currentElement.getIdCategory());
+                mActivity.startActivity(intent);
+            }
+        });
         return bucketElement;
     }
 

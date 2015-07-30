@@ -16,13 +16,13 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.poo_code.onlinemobilestore.Adapter.DrawerItemAdapter;
 import com.example.poo_code.onlinemobilestore.Entities.DrawerItem;
 import com.example.poo_code.onlinemobilestore.Entities.DrawerMenu;
 import com.example.poo_code.onlinemobilestore.Fragment.FragmentCategory;
 import com.example.poo_code.onlinemobilestore.Fragment.FragmentRebaja;
+import com.example.poo_code.onlinemobilestore.Mapas.ActMapas;
 import com.example.poo_code.onlinemobilestore.R;
 import java.util.Arrays;
 import java.util.List;
@@ -31,7 +31,6 @@ public class ActMain extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
-    private DrawerItemAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +50,7 @@ public class ActMain extends AppCompatActivity {
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        List<DrawerItem> drawerItems =  new java.util.ArrayList<DrawerItem>(Arrays.asList(
+        List<DrawerItem> drawerItems = new java.util.ArrayList<>(Arrays.asList(
                 new DrawerItem(DrawerItem.Type.HEADER),
                 new DrawerMenu().setIconRes(R.mipmap.ic_action_tags).setText(getString(R.string.drawer_rebajas, 1)),
                 new DrawerItem(DrawerItem.Type.DIVIDER),
@@ -63,18 +62,16 @@ public class ActMain extends AppCompatActivity {
                 new DrawerItem(DrawerItem.Type.DIVIDER),
                 new DrawerMenu().setIconRes(R.mipmap.ic_action_tshirt).setText(getString(R.string.drawer_nueva_temporada, 9)),
                 new DrawerItem(DrawerItem.Type.DIVIDER),
-                new DrawerMenu().setIconRes(R.mipmap.ic_action_user).setText(getString(R.string.drawer_perfil, 11)),
+                new DrawerMenu().setIconRes(R.mipmap.ic_action_dialog).setText(getString(R.string.drawer_ayuda, 11)),
                 new DrawerItem(DrawerItem.Type.DIVIDER),
-                new DrawerMenu().setIconRes(R.mipmap.ic_action_dialog).setText(getString(R.string.drawer_ayuda, 13)),
+                new DrawerMenu().setIconRes(R.mipmap.ic_action_barcode_2).setText(getString(R.string.drawer_scan, 13)),
                 new DrawerItem(DrawerItem.Type.DIVIDER),
-                new DrawerMenu().setIconRes(R.mipmap.ic_action_barcode_2).setText(getString(R.string.drawer_scan, 15)),
-                new DrawerItem(DrawerItem.Type.DIVIDER),
-                new DrawerMenu().setIconRes(R.mipmap.ic_action_exit).setText(getString(R.string.drawer_salir, 17)),
+                new DrawerMenu().setIconRes(R.mipmap.ic_action_exit).setText(getString(R.string.drawer_salir, 15)),
                 new DrawerItem(DrawerItem.Type.DIVIDER)));
 
         onDrawerMenuSelected(1);
         drawerOptions.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new DrawerItemAdapter(drawerItems);
+        DrawerItemAdapter adapter = new DrawerItemAdapter(drawerItems);
         adapter.setOnItemClickListener(new DrawerItemAdapter.OnItemClickListener() {
             @Override
             public void onClick(View view, int position) {
@@ -92,36 +89,43 @@ public class ActMain extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         Bundle arguments = new Bundle();
         switch (position){
+            case 1:
+                arguments.putInt("categoria", 3);
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, FragmentRebaja.newInstance(arguments))
+                        .commit();
+                break;
             case 3:
                 arguments.putString("operador", "menu");
                 fragmentManager.beginTransaction()
                         .replace(R.id.content_frame, FragmentCategory.newInstance(arguments))
                         .commit();
                 break;
-            case 1:
-                arguments.putString("operador", "menu");
-                fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, FragmentRebaja.newInstance(arguments))
-                        .commit();
-                break;
-            case 0:
-                /*arguments.putString("operador", "menu");
-                fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, FragListCategorias.newInstance(arguments))
-                        .commit();*/
-                break;
-            case 4:
-                break;
             case 5:
                 Intent intent = new Intent(this, ActCarProduct.class);
                 startActivity(intent);
                 break;
-            case 6:
+            case 7:
+                Intent intent2 = new Intent(this, ActMapas.class);
+                startActivity(intent2);
+                break;
+            case 9:
+                //Nueva temprada
+                break;
+            case 11:
+                //Ayuda
+                break;
+            case 13:
+                //Scam
+                Intent intents = new Intent(this, SimpleScannerActivity.class);
+                startActivity(intents);
+                break;
+            case 15:
                 salirApp();
                 break;
             default:
 
-        };
+        }
         drawerLayout.closeDrawers();
     }
 
@@ -174,9 +178,9 @@ public class ActMain extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_cart) {
+            Intent intent = new Intent(this, ActCarProduct.class);
+            startActivity(intent);
             return true;
         }
 

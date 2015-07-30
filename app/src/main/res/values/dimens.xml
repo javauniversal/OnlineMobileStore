@@ -3,8 +3,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="grid_item_background_shadow_height">3dp</dimen>
-    <dimen name="grid_item_background_corner_radius">3dp</dimen>
+    <dimen name="grid_item_background_shadow_height">5dp</dimen>
+    <dimen name="grid_item_background_corner_radius">5dp</dimen>
 
     <dimen name="project_card_min_width">150.0dip</dimen>
 

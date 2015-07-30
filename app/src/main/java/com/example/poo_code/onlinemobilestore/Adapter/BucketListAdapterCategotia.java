@@ -15,9 +15,6 @@ import com.example.poo_code.onlinemobilestore.R;
 import java.util.List;
 
 
-/**
- * Created by Poo_Code on 23/11/2014.
- */
 public abstract class BucketListAdapterCategotia<T> extends BaseAdapter {
 
     protected List<Category> elements;
