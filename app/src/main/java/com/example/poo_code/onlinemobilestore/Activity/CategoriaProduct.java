@@ -33,6 +33,7 @@ public class CategoriaProduct extends AppCompatActivity {
                         .commit();
             }
         }
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

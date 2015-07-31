@@ -110,10 +110,12 @@ public class ActMain extends AppCompatActivity {
                 startActivity(intent2);
                 break;
             case 9:
-                //Nueva temprada
+                //Nueva temprada.
                 break;
             case 11:
                 //Ayuda
+                Intent intent3 = new Intent(this, CartPayPal.class);
+                startActivity(intent3);
                 break;
             case 13:
                 //Scam
