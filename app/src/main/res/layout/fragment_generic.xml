@@ -21,9 +21,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/error_data"
         android:visibility="gone"
-        android:src="@drawable/error_view_cloud"
+        android:src="@mipmap/error_view_cloud"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/app_name" />
 
 
 </RelativeLayout>
